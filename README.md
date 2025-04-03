@@ -21,33 +21,42 @@ char *get_next_line(int fd);
 
 ## Installation et Compilation
 Clonez le projet depuis GitHub et compilez-le avec `make` :
-git clone <URL_du_projet> cd get_next_line make
+
+git clone <URL_du_projet>
+
+cd get_next_line
+
+make
 
 ---
 
 ## Utilisation
 Incluez le fichier d'en-tête dans votre projet :
+
 #include “get_next_line.h”
+
 Exemple d'utilisation :
-#include <fcntl.h> #include <stdio.h> #include “get_next_line.h”
-int main(void) { int fd = open(“example.txt”, O_RDONLY); char *line;
-while ((line = get_next_line(fd)) != NULL) {
-    printf("%s", line);
-    free(line); // Libérer la mémoire allouée.
+
+```
+#include <fcntl.h> 
+#include <stdio.h>
+#include “get_next_line.h”
+
+int main(void) 
+{
+     char *line;
+    int fd = open(“example.txt”, O_RDONLY);
+    while ((line = get_next_line(fd)) != NULL) 
+    {
+        printf("%s", line);
+        free(line); // Libérer la mémoire allouée.
+    }
+    close(fd);
+    return 0;
 }
-close(fd);
-return 0;
+```
 
----
 
-## Structure du Projet
-| Fichier          | Description                          | Responsabilité                   |
-|------------------|--------------------------------------|----------------------------------|
-| `get_next_line.c`| Implémentation principale            | Lecture et gestion des lignes   |
-| `get_next_line_utils.c` | Fonctions utilitaires           | Manipulation de chaînes et mémoire |
-| `Makefile`       | Automatisation de la compilation     | Génération de la bibliothèque   |
-
----
 
 ## Tests
 Pour tester le projet, utilisez des fichiers contenant plusieurs lignes ou des entrées standard. Vous pouvez également ajuster la taille du buffer lors de la compilation :
@@ -57,10 +66,3 @@ gcc -D BUFFER_SIZE=32 -o test get_next_line.c get_next_line_utils.c
 
 ## Ressources Utiles
 - [Documentation sur les file descriptors](https://man7.org/linux/man-pages/man2/open.2.html)
-- Tutoriel vidéo : "Understanding Get Next Line" sur YouTube.
-- Articles sur les variables statiques et gestion mémoire.
-
----
-
-## Auteur
-Projet réalisé dans le cadre du cursus 42. N'hésitez pas à poser vos questions ou à contribuer !
