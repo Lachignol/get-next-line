@@ -20,14 +20,11 @@ char *get_next_line(int fd);
 ---
 
 ## Installation et Compilation
-Clonez le projet depuis GitHub et compilez-le avec `make` :
+Clonez le projet depuis GitHub et compilez-le avec votre main :
 
 git clone <URL_du_projet>
 
 cd get_next_line
-
-make
-
 ---
 
 ## Utilisation
