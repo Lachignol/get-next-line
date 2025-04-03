@@ -22,9 +22,11 @@ char *get_next_line(int fd);
 ## Installation et Compilation
 Clonez le projet depuis GitHub et compilez-le avec votre main :
 
-git clone <URL_du_projet>
+- git clone <URL_du_projet>
 
-cd get_next_line
+- cd 
+
+- get_next_line
 ---
 
 ## Utilisation
